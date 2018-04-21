@@ -1,14 +1,18 @@
-package game.racers.land;
+package game.racers.navy;
 
 import game.racers.Racer;
 import utilities.EnumContainer.Color;
 
-public class Horse extends Racer implements LandRacer {
+public class SpeedBoat extends Racer implements NavalRacer{
 
-	public Horse(String name, double maxSpeed, double acceleration, Color color) {
-		
+	
+	public SpeedBoat() {
+		super(null, 170, 5, Color.RED);
+		name="RowBoat#"+serialNumber;
+	}
+	public SpeedBoat(String name, double maxSpeed, double acceleration, Color color) {
 		super(name, maxSpeed, acceleration, color);
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -24,8 +28,5 @@ public class Horse extends Racer implements LandRacer {
 	}
 
 	
-
-
 	
-
 }

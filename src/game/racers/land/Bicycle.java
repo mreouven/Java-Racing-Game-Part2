@@ -1,5 +1,6 @@
 package game.racers.land;
 
+
 import game.racers.Racer;
 import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
@@ -8,7 +9,7 @@ import utilities.EnumContainer.Engine;
 public class Bicycle extends Racer implements LandRacer{
 	
 	Wheeled car;
-	Engine engine;
+	utilities.EnumContainer.TypeBicycle type;
 
 	public Bicycle(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
@@ -22,7 +23,7 @@ public class Bicycle extends Racer implements LandRacer{
 		name="Bicycle#"+serialNumber;
 		car=new Wheeled(2);
 		
-		//TODO verifier engine
+		//TODO verifier type
 	}
 	
 	

@@ -1,10 +1,11 @@
 package utilities;
 
-import factory.RaceBuilder;
+
 import game.arenas.Arena;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
+import utilities.*;
 import utilities.EnumContainer.Color;
 
 // see output at end of file

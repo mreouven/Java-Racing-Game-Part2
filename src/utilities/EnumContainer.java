@@ -59,6 +59,24 @@ public class EnumContainer {
 	public static enum Engine{
 		FOURSTROKE,VTYPE,STRAIGHT,BOXER,ROTARY
 	}
+	public static enum TypeBicycle{
+		MOUNTAIN,HYBRID,CRUISER,ROAD
+		
+	}
+	
+	
+	
+	//RowBoat
+	public static enum TypeBoat{
+		SKULLING,SWEEP
+		
+	}
+	
+	public static enum TeamBoat{
+		SINGLE,DOUBLE,QUAD,EIGHT
+		
+	}
+
 	
 	
 }
