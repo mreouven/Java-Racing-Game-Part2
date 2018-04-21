@@ -6,6 +6,8 @@ import utilities.EnumContainer.Color;
 
 public abstract class Racer {
 	
+	
+	protected static int counter=0;
 	protected int serialNumber;
 	protected String name;
 	protected Point currentLocation;
@@ -26,7 +28,8 @@ public abstract class Racer {
 		this.maxSpeed = maxSpeed;
 		this.acceleration = acceleration;
 		this.color = color;
-		
+		this.serialNumber=counter++;
+				
 	}
 	
 	public void initRace(Arena arena, Point start, Point finish) {

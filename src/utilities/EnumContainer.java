@@ -55,4 +55,10 @@ public class EnumContainer {
 	public static enum Breed{
 		THOROUGHBRED,STANDARDBRED,MORGAN,FRIESIAN
 	}
+	
+	public static enum Engine{
+		FOURSTROKE,VTYPE,STRAIGHT,BOXER,ROTARY
+	}
+	
+	
 }

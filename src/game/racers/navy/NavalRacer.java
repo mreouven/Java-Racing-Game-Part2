@@ -1,5 +1,6 @@
 package game.racers.navy;
 
-public class NavalRacer {
+public interface NavalRacer {
 
+	
 }

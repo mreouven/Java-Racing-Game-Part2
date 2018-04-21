@@ -13,7 +13,7 @@ public class LandArena extends Arena {
 	
 	
 	protected LandArena() {
-		super(1000,8,0.5);
+		super(800,8,0.5);
 		//TODO verifier taille par default
 		
 		this.setSurface(SurfaceL.FLAT);
