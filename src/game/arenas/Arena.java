@@ -1,6 +1,7 @@
 package game.arenas;
 
 
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 import utilities.Point;
 import game.arenas.exceptions.RacerLimitException;
@@ -12,7 +13,7 @@ public class Arena {
 	private  ArrayList <Racer> activeRacers;
 	private  ArrayList <Racer> completedRacers;
 	
-	private final double  FRICTION;
+	private double  FRICTION;
 	private final int  MAX_RACERS;
 	private final static int MIN_Y_GAP=10;
 	private double length;
@@ -24,6 +25,8 @@ public class Arena {
 		this.setLength(length);
 		this.MAX_RACERS=maxRacers;
 		this.FRICTION=friction;
+		this.setActiveRacers(new ArrayList<>());
+		this.setCompletedRacers(new ArrayList<>());
 	}
 	
 	
@@ -31,8 +34,7 @@ public class Arena {
 	public void addRacer(Racer newRacer) throws RacerLimitException{
 		if(activeRacers.size()+completedRacers.size()>MAX_RACERS)
 		{
-			throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));
-		
+			throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));	
 		}
 		else {
 			activeRacers.add(newRacer);
@@ -64,22 +66,15 @@ public class Arena {
 	
 	
 	public void playTurn() {
-		
-		
-		
-		
-		
-		
+		for (Racer ap : this.activeRacers) {
+			ap.move(this.FRICTION);
+		}
 	}
 	
 	
 	public int crossFinishLine(Racer racer) {
-		//TODO Finir 
-		 if(racer!=null) {
-			 completedRacers.add(racer);
-			 return completedRacers.size();
-		 }
-		return -1;
+		this.completedRacers.add(racer);
+		return this.completedRacers.size();
 	 }	
 	
 

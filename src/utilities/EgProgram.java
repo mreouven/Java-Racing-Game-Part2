@@ -5,7 +5,6 @@ import game.arenas.Arena;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
-import utilities.*;
 import utilities.EnumContainer.Color;
 
 
@@ -19,7 +18,7 @@ public class EgProgram {
 		RaceBuilder rb = RaceBuilder.getInstance();
 		Fate.setSeed(477734503);
 
-		arena = rb.buildArena("game.arenas.air.AerialArena", 1500, 4);
+		arena = rb.buildArena("game.arenas.AerialArena", 1500, 4);
 		racers[0] = rb.buildRacer("game.racers.air.Airplane", "Bob", 220, 10, Color.BLUE);
 		racers[1] = rb.buildRacer("game.racers.air.Airplane", "John", 175, 20, Color.BLUE);
 		racers[2] = rb.buildRacer("game.racers.air.Airplane", "Frank", 180, 15, Color.BLUE);
@@ -34,9 +33,9 @@ public class EgProgram {
 				arena.addRacer(r);
 			} catch (RacerLimitException e) {
 				System.out.println("[Error] " + e.getMessage());
-			} catch (RacerTypeException e) {
+			} /*catch (RacerTypeException e) {
 				System.out.println("[Error] " + e.getMessage());
-			}
+			}*/
 
 		}
 		arena.initRace();

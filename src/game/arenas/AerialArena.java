@@ -12,7 +12,7 @@ public class AerialArena extends Arena {
 	
 	
 
-	protected AerialArena(double length, int maxRacers) {
+	public AerialArena(double length, int maxRacers) {
 		super(length, maxRacers,0.4);
 		this.setVision(Vision.SUNNY);
 		this.setWeather(Weather.DRY);
