@@ -32,7 +32,7 @@ public class Arena {
 	public void addRacer(Racer newRacer) throws RacerLimitException{
 		if(activeRacers.size()+completedRacers.size()>MAX_RACERS)
 		{
-			throw new RacerLimitException();
+			throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));
 			//TODO finir les exeptions
 			
 		}

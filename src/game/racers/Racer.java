@@ -7,6 +7,14 @@ import utilities.EnumContainer.Color;
 public abstract class Racer {
 	
 	
+	public int getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(int serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+
 	protected static int counter=0;
 	protected int serialNumber;
 	protected String name;
