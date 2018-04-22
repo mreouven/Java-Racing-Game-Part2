@@ -1,10 +1,12 @@
 package game.racers.air;
 
 import game.racers.Racer;
+import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
 
 public class Airplane extends Racer implements AerialRacer{
 
+	 //TODO Verifier si il yaWheeled airplane;
 	public Airplane(String name, double maxSpeed, double acceleration, Color color) {
 		super(name, maxSpeed, acceleration, color);
 		

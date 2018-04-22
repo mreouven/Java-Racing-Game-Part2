@@ -2,9 +2,6 @@ package game.arenas;
 
 
 import java.util.ArrayList;
-
-import javax.sound.midi.MidiChannel;
-
 import utilities.Point;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
@@ -21,6 +18,8 @@ public class Arena {
 	private double length;
 	
 	
+	
+	
 	protected Arena(double length, int maxRacers, double friction){
 		this.setLength(length);
 		this.MAX_RACERS=maxRacers;
@@ -33,12 +32,15 @@ public class Arena {
 		if(activeRacers.size()+completedRacers.size()>MAX_RACERS)
 		{
 			throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));
-			//TODO finir les exeptions
-			
+		
 		}
-		//TODO finir les verif
+		else {
+			activeRacers.add(newRacer);
+		}
 		
 	}
+	
+	
 	public void initRace() {
 	
 	  for(int i=0;i<activeRacers.size();i++) {
@@ -48,6 +50,9 @@ public class Arena {
  
 	  
 	}
+	
+	
+	
 	public boolean hasActiveRacers() {
 			if (activeRacers.size()!=0) {
 				return true;
@@ -55,14 +60,24 @@ public class Arena {
 			return false;  
 		  
 	}
-	public void playTurn() {}
+	
+	
+	
+	public void playTurn() {
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 	public int crossFinishLine(Racer racer) {
 		//TODO Finir 
 		 if(racer!=null) {
-			 finished.add(racer);
-			 return finished.size();
+			 completedRacers.add(racer);
+			 return completedRacers.size();
 		 }
 		return -1;
 	 }	

@@ -41,8 +41,11 @@ public abstract class Racer {
 	}
 	
 	public void initRace(Arena arena, Point start, Point finish) {
-		//TODO remplir la fonction
+		this.arena=arena;
+		this.currentLocation=new Point(start);
+		this.finish=new Point(finish);
 	}
+	
 	
 	public Point move(double friction) {
 		if(maxSpeed>currentSpeed+acceleration*friction)
@@ -55,15 +58,13 @@ public abstract class Racer {
 		return currentLocation;
 	}
 	
-	public abstract String describeRacer() ;
+	public String describeRacer()
+	{
+		return "["+this.className()+"] name: "+name+ ", SerialNumber: " +serialNumber+ ", acceleration: "+acceleration + describeSpecific();
+	}
+	
 	public abstract String describeSpecific();
-	/*{
-		
-		//return "name: "+name+ ", SerialNumber: " +serialNumber+ ", acceleration: "+acceleration;
-		
-	//TODO verifier NumOfWheels
-		
-	}*/
+
 	
 	public void introduce() {
 	//TODO remplir la fonction 
