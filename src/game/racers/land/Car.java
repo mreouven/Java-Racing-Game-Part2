@@ -27,16 +27,11 @@ public class Car extends Racer implements LandRacer{
 	
 	
 	
-	
-	@Override
-	public String describeRacer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	@Override
 	public String describeSpecific() {
-		// TODO Auto-generated method stub
-		return null;
+		return "NumOfWheels: "+car.getNumOfWheeled();
+	
 	}
 
 	

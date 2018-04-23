@@ -15,11 +15,6 @@ public class Helicopter extends Racer implements AerialRacer{
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
-	public String describeRacer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public String describeSpecific() {

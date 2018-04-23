@@ -1,8 +1,12 @@
 package game.racers;
 
+import java.text.DecimalFormat;
+
 import game.arenas.Arena;
 import utilities.Point;
 import utilities.EnumContainer.Color;
+import utilities.Fate;
+import utilities.Mishap;
 
 public abstract class Racer {
 	
@@ -15,7 +19,7 @@ public abstract class Racer {
 		this.serialNumber = serialNumber;
 	}
 
-	protected static int counter=0;
+	protected static int counter=1;
 	protected int serialNumber;
 	protected String name;
 	protected Point currentLocation;
@@ -26,6 +30,7 @@ public abstract class Racer {
 	protected double currentSpeed;
 	protected double failureProbability;// Chance to break down
 	protected Color color; //enum (RED,GREEN,BLUE,BLACK,YELLOW)
+	protected Mishap takala;
 	
 	
 	
@@ -37,6 +42,7 @@ public abstract class Racer {
 		this.acceleration = acceleration;
 		this.color = color;
 		this.serialNumber=counter++;
+		takala=Fate.generateMishap();
 				
 	}
 	
@@ -46,28 +52,68 @@ public abstract class Racer {
 		this.finish=new Point(finish);
 	}
 	
-	
 	public Point move(double friction) {
-		if(maxSpeed>currentSpeed+acceleration*friction)
-			currentSpeed+=acceleration*friction;
-		else {
-			currentSpeed=maxSpeed;
+		if(takala.isFixable()==false || takala.getTurnsToFix()==0) {
+			takala=Fate.generateMishap();
 		}
-		currentLocation.setX(currentLocation.getX()+currentSpeed);
-		//TODO has a chance for failure ( see section 4.2 )
-		return currentLocation;
+		if(takala.isFixable()==true) {
+			System.out.println(this.name+ " Has a new mishap! " +takala);
+			if(takala.getTurnsToFix()>0) {
+				this.acceleration*=takala.getReductionFactor();
+				takala.nextTurn();
+			}	
+		}
+		if (this.currentSpeed < this.maxSpeed) {
+			this.setCurrentSpeed(this.currentSpeed + this.acceleration * friction);
+		}
+		if (this.currentSpeed > this.maxSpeed) {
+			this.setCurrentSpeed(this.maxSpeed);
+		}
+		Point newLocation = new Point((this.currentLocation.getX() + (1 * this.currentSpeed)),
+				this.currentLocation.getY());
+		this.setCurrentLocation(newLocation);
+
+		if (this.currentLocation.getX() >= this.finish.getX()) {
+			this.arena.crossFinishLine(this);
+		}
+		return this.currentLocation;
 	}
 	
+	
+	
+	@SuppressWarnings("unused")
+	private double getCurrentSpeed() {
+		return currentSpeed;
+	}
+
+	@SuppressWarnings("unused")
+	private Point getCurrentLocation() {
+		return currentLocation;
+	}
+
+	private void setCurrentLocation(Point currentLocation) {
+		this.currentLocation = currentLocation;
+	}
+
+	private void setCurrentSpeed(double currentSpeed) {
+		this.currentSpeed = currentSpeed;
+	}
+
 	public String describeRacer()
 	{
-		return "["+this.className()+"] name: "+name+ ", SerialNumber: " +serialNumber+ ", acceleration: "+acceleration + describeSpecific();
+		String spec=describeSpecific();
+		if(spec!=null)
+			return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+", acceleration: "+new DecimalFormat("0.00").format(acceleration) +", "+ describeSpecific();
+		return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+ ", acceleration: "+new DecimalFormat("0.00").format(acceleration);
+		
 	}
 	
 	public abstract String describeSpecific();
+	
 
 	
 	public void introduce() {
-	//TODO remplir la fonction 
+		System.out.println("["+this.getClass().getSimpleName()+"]"+ this.describeRacer());
 	}
 	
 	public String className() {

@@ -11,11 +11,6 @@ public class Horse extends Racer implements LandRacer {
 		
 	}
 
-	@Override
-	public String describeRacer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public String describeSpecific() {

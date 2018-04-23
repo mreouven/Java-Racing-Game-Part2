@@ -7,7 +7,6 @@ import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
 import utilities.EnumContainer.Color;
 
-
 // see output at end of file
 
 public class EgProgram {
@@ -18,13 +17,13 @@ public class EgProgram {
 		RaceBuilder rb = RaceBuilder.getInstance();
 		Fate.setSeed(477734503);
 
-		arena = rb.buildArena("game.arenas.AerialArena", 1500, 4);
-		racers[0] = rb.buildRacer("game.racers.air.Airplane", "Bob", 220, 10, Color.BLUE);
-		racers[1] = rb.buildRacer("game.racers.air.Airplane", "John", 175, 20, Color.BLUE);
-		racers[2] = rb.buildRacer("game.racers.air.Airplane", "Frank", 180, 15, Color.BLUE);
-		racers[3] = rb.buildRacer("game.racers.air.Airplane", "Matt", 230, 8, Color.BLUE);
-		racers[4] = rb.buildRacer("game.racers.Car", "car", 15, 1, Color.GREEN);
-		racers[5] = rb.buildRacer("game.racers.air.Airplane", "Alby", 200, 8, Color.BLUE);
+		arena = rb.buildArena("game.arenas.AerialArena", 1500, 6);
+		racers[0] = rb.buildWheeledRacer("game.racers.air.Airplane", "Bob", 220, 10, Color.BLUE,4);
+		racers[1] = rb.buildWheeledRacer("game.racers.air.Airplane", "John", 175, 20, Color.BLUE,4);
+		racers[2] = rb.buildWheeledRacer("game.racers.air.Airplane", "Frank", 180, 15, Color.BLUE,4);
+		racers[3] = rb.buildWheeledRacer("game.racers.air.Airplane", "Matt", 230, 8, Color.BLUE,4);
+		racers[4] = rb.buildWheeledRacer("game.racers.land.Car", "car", 15, 1, Color.GREEN,4);
+		racers[5] = rb.buildWheeledRacer("game.racers.air.Airplane", "Alby", 200, 8, Color.BLUE,4);
 		for (Racer r : racers) {
 
 			try {
@@ -33,11 +32,12 @@ public class EgProgram {
 				arena.addRacer(r);
 			} catch (RacerLimitException e) {
 				System.out.println("[Error] " + e.getMessage());
-			} /*catch (RacerTypeException e) {
+			} catch (RacerTypeException e) {
 				System.out.println("[Error] " + e.getMessage());
-			}*/
+			}
 
 		}
+		
 		arena.initRace();
 		System.out.println("Strat Race!");
 		while (arena.hasActiveRacers()) {
@@ -59,6 +59,7 @@ Racer enterd the arena!
 [Airplane] name: Matt, SerialNumber: 4, maxSpeed: 230.0, acceleration: 8.0, NumOfWheels: 0.
 Racer enterd the arena!
 [Car] name: car, SerialNumber: 5, maxSpeed: 15.0, acceleration: 1.0, null
+
 [Error] Invalid Racer of type "Car" for Aerial arena.
 Racer enterd the arena!
 [Airplane] name: Alby, SerialNumber: 6, maxSpeed: 200.0, acceleration: 8.0, NumOfWheels: 0.

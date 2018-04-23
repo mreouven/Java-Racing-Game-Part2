@@ -24,7 +24,7 @@ public class Fate {
 	}
 
 	public static Mishap generateMishap() {
-			return new Mishap(generateFixable(), generateTurns(), generateReduction());
+			return new Mishap(generateFixable(),generateReduction(), generateTurns());
 	}
 
 	public static void setSeed(int seed) {

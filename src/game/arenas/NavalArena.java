@@ -1,5 +1,9 @@
 package game.arenas;
 
+import game.arenas.exceptions.RacerLimitException;
+import game.arenas.exceptions.RacerTypeException;
+import game.racers.Racer;
+import game.racers.navy.NavalRacer;
 import utilities.EnumContainer.*;
 
 public class NavalArena extends Arena {
@@ -56,6 +60,22 @@ public class NavalArena extends Arena {
 
 	public void setBody(Body body) {
 		this.body = body;
+	}
+	
+	@Override
+	public void addRacer(Racer newRacer) throws RacerLimitException, RacerTypeException {
+		
+		try {
+			NavalRacer test=(NavalRacer)newRacer;
+			if(activeRacers.size()+completedRacers.size()>MAX_RACERS)
+			{
+				throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));	
+			}
+			activeRacers.add((Racer) test);
+		} catch (ClassCastException e) {
+			throw new RacerTypeException(newRacer.getClass().getSimpleName(), "Naval Arena");
+		}
+		
 	}
 	
 	

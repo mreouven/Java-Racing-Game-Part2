@@ -1,5 +1,9 @@
 package game.arenas;
 
+import game.arenas.exceptions.RacerLimitException;
+import game.arenas.exceptions.RacerTypeException;
+import game.racers.Racer;
+import game.racers.air.AerialRacer;
 import utilities.EnumContainer.*;
 
 public class AerialArena extends Arena {
@@ -23,7 +27,7 @@ public class AerialArena extends Arena {
 	}
 
 	
-	protected AerialArena() {
+	public AerialArena() {
 		super(1500,6,0.4);
 		this.setVision(Vision.SUNNY);
 		this.setWeather(Weather.DRY);
@@ -77,7 +81,21 @@ public class AerialArena extends Arena {
 
 	
 	
-	
+	@Override
+	public void addRacer(Racer newRacer) throws RacerLimitException, RacerTypeException {
+		try {
+			AerialRacer test=(AerialRacer)newRacer;
+			if(activeRacers.size()+completedRacers.size()>=MAX_RACERS)
+			{
+				throw new RacerLimitException(Integer.toString(activeRacers.size()), Integer.toString(newRacer.getSerialNumber()));	
+			}
+			activeRacers.add((Racer) test);
+		} 
+		catch (ClassCastException e) {
+			throw new RacerTypeException(newRacer.getClass().getSimpleName(), "Aerial Arena");
+		}
+		
+	}
 	
 
 

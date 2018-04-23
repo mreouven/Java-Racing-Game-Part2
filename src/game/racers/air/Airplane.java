@@ -5,27 +5,24 @@ import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
 
 public class Airplane extends Racer implements AerialRacer{
+	Wheeled airplane;
 
-	 //TODO Verifier si il yaWheeled airplane;
-	public Airplane(String name, double maxSpeed, double acceleration, Color color) {
+
+	public Airplane(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
+		airplane=new Wheeled(numOfWheeld);
 		
 	}
 	public Airplane() {
-		super("Default", 885, 100, Color.BLACK);
-		// TODO Auto-generated constructor stub
+		super("Airplane#", 885, 100, Color.BLACK);
+		airplane=new Wheeled(0);
 	}
 	
-	@Override
-	public String describeRacer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public String describeSpecific() {
-		// TODO Auto-generated method stub
-		return null;
+		return "NumOfWheels: "+airplane.getNumOfWheeled();
 	}
 
 }
