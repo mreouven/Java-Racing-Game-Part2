@@ -38,7 +38,6 @@ public abstract class Arena {
 	
 	  for(int i=0;i<activeRacers.size();i++) {
 		  activeRacers.get(i).initRace(this,new Point(0,(i)*MIN_Y_GAP),new Point(0,length));
-	  //TODO verifier si la fin cest pas i*lenght*min_y_gap
 	  }
  
 	  
