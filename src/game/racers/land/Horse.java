@@ -10,14 +10,19 @@ public class Horse extends Racer implements LandRacer {
 		super(name, maxSpeed, acceleration, color);
 		
 	}
+	public Horse() {
+		
+		super(null, 50, 3, Color.BLACK);
+		name="Horse#"+serialNumber;
+		
+	}
 
 
 	@Override
 	public String describeSpecific() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	
 
 

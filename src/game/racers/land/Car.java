@@ -5,8 +5,25 @@ import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
 import utilities.EnumContainer.Engine;
 
+@SuppressWarnings("unused")
 public class Car extends Racer implements LandRacer{
 	
+	public Wheeled getCar() {
+		return car;
+	}
+	public void setCar(Wheeled car) {
+		this.car = car;
+	}
+	public Engine getEngine() {
+		return engine;
+	}
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+
+
+
+
 	Wheeled car;
 	Engine engine;
 

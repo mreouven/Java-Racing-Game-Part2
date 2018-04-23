@@ -5,20 +5,28 @@ import game.racers.Racer;
 import utilities.EnumContainer.Color;
 
 public class Helicopter extends Racer implements AerialRacer{
-
+	/**
+	* <h1>Helicopter</h1>
+	* 
+	* <p>
+	* <b>Note:</b> 
+	*
+	* @author  Reouven Mimoun, Emeth Genah
+	* @version 1.0
+	* @since   2018-04-23
+	*/
 	public Helicopter(String name, double maxSpeed, double acceleration, Color color) {
 		super(name, maxSpeed, acceleration, color);
 		
 	}
 	public Helicopter() {
-		super("Default", 400, 50, Color.BLUE);
-		// TODO Auto-generated constructor stub
+		super(null, 400, 50, Color.BLUE);
+		name="Helicopter#"+serialNumber;
 	}
 	
 
 	@Override
 	public String describeSpecific() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
