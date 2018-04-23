@@ -59,8 +59,22 @@ public abstract class Racer {
 		if(takala.isFixable()==true) {
 			System.out.println(this.name+ " Has a new mishap! " +takala);
 			if(takala.getTurnsToFix()>0) {
-				this.acceleration*=takala.getReductionFactor();
+				if (this.currentSpeed < this.maxSpeed) {
+					this.setCurrentSpeed(this.currentSpeed + this.acceleration*takala.getReductionFactor() * friction);
+				}
+				if (this.currentSpeed > this.maxSpeed) {
+					this.setCurrentSpeed(this.maxSpeed);
+				}
+				Point newLocation = new Point((this.currentLocation.getX() + (1 * this.currentSpeed)),
+						this.currentLocation.getY());
+				this.setCurrentLocation(newLocation);
+
+				if (this.currentLocation.getX() >= this.finish.getX()) {
+					this.arena.crossFinishLine(this);
+				}
 				takala.nextTurn();
+				return this.currentLocation;
+				
 			}	
 		}
 		if (this.currentSpeed < this.maxSpeed) {

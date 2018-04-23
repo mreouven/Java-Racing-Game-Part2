@@ -25,13 +25,13 @@ public class Airplane extends Racer implements AerialRacer{
 		airplane=new Wheeled(numOfWheeld);
 		
 	}
+
 	public Airplane() {
 		super(null, 885, 100, Color.BLACK);
 		name="Airplane#"+serialNumber;
 		airplane=new Wheeled(0);
 	}
 	
-
 
 	@Override
 	public String describeSpecific() {
