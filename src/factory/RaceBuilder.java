@@ -1,4 +1,4 @@
-package utilities;
+package factory;
 
 import java.lang.reflect.*;
 
@@ -20,8 +20,8 @@ public class RaceBuilder {
 	
 	
 	
-	public Arena buildArena(String arenaType, double length, int maxRacers){
-		try {
+	public Arena buildArena(String arenaType, double length, int maxRacers) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		
 			
 			// Create a new JavaClassLoader 
 			ClassLoader classLoader = this.getClass().getClassLoader();
@@ -34,20 +34,14 @@ public class RaceBuilder {
 	        Object myClassObject = constructor.newInstance(length,maxRacers);
 	       return (Arena) myClassObject;
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		
 		
 		 
 	}
 	
 	
-	public Racer buildRacer(String racerType, String name, double maxSpeed, double acceleration, utilities.EnumContainer.Color color){
-			try {
-			
+	public Racer buildRacer(String racerType, String name, double maxSpeed, double acceleration, utilities.EnumContainer.Color color) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		
 			// Create a new JavaClassLoader 
 			ClassLoader classLoader = this.getClass().getClassLoader();
 			
@@ -59,20 +53,11 @@ public class RaceBuilder {
 	        Object myClassObject = constructor.newInstance(name,maxSpeed,acceleration,color);
 	       return (Racer) myClassObject;
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 		
 	}
-	public Racer buildWheeledRacer(String racerType, String name, double maxSpeed, double acceleration, utilities.EnumContainer.Color color, int numOfWheels)
+	public Racer buildWheeledRacer(String racerType, String name, double maxSpeed, double acceleration, utilities.EnumContainer.Color color, int numOfWheels) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 	{
-		
-		try {
-			
-			// Create a new JavaClassLoader 
+		// Create a new JavaClassLoader 
 			ClassLoader classLoader = this.getClass().getClassLoader();
 			
 			// Load the target class using its binary name
@@ -83,11 +68,6 @@ public class RaceBuilder {
 	        Object myClassObject = constructor.newInstance(name,maxSpeed,acceleration,color,numOfWheels);
 	       return (Racer) myClassObject;
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+	
 	}
 }

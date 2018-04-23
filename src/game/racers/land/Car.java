@@ -25,7 +25,7 @@ public class Car extends Racer implements LandRacer{
 
 
 	Wheeled car;
-	Engine engine;
+	Engine engine=Engine.ROTARY;
 
 	public Car(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
@@ -47,7 +47,7 @@ public class Car extends Racer implements LandRacer{
 
 	@Override
 	public String describeSpecific() {
-		return "NumOfWheels: "+car.getNumOfWheeled();
+		return "NumOfWheels: "+car.getNumOfWheeled()+", Engine: "+engine;
 	
 	}
 

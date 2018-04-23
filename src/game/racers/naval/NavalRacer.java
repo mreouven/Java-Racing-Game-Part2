@@ -1,4 +1,4 @@
-package game.racers.navy;
+package game.racers.naval;
 
 public interface NavalRacer {
 

@@ -4,12 +4,13 @@ package game.racers.land;
 import game.racers.Racer;
 import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
+import utilities.EnumContainer.TypeBicycle;
 
 
 public class Bicycle extends Racer implements LandRacer{
 	
 	Wheeled bicycleW;
-	utilities.EnumContainer.TypeBicycle type;
+	utilities.EnumContainer.TypeBicycle type=TypeBicycle.MOUNTAIN;
 
 	public Bicycle(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
@@ -27,7 +28,7 @@ public class Bicycle extends Racer implements LandRacer{
 
 	@Override
 	public String describeSpecific() {
-		return "NumOfWheels: "+bicycleW.getNumOfWheeled();
+		return "NumOfWheels: "+bicycleW.getNumOfWheeled()+", TypeBicycle: "+type;
 	}
 	public Wheeled getBicycleW() {
 		return bicycleW;

@@ -1,9 +1,10 @@
-package game.arenas;
+package game.arenas.naval;
 
+import game.arenas.Arena;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
-import game.racers.navy.NavalRacer;
+import game.racers.naval.NavalRacer;
 import utilities.EnumContainer.*;
 
 public class NavalArena extends Arena {
@@ -12,7 +13,7 @@ public class NavalArena extends Arena {
 	private SurfaceW surface;
 	private Body body;
 	
-	protected NavalArena(double length, int maxRacers) {
+	public NavalArena(double length, int maxRacers) {
 			super(length, maxRacers,0.7);
 			this.setBody(Body.LAKE);
 			this.setWater(Water.SWEET);
@@ -22,7 +23,7 @@ public class NavalArena extends Arena {
 		
 		
 	}
-	protected NavalArena() {
+	public NavalArena() {
 		super(1000,5,0.7);
 		this.setBody(Body.LAKE);
 		this.setWater(Water.SWEET);

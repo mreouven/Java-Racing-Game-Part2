@@ -1,5 +1,6 @@
-package game.arenas;
+package game.arenas.air;
 
+import game.arenas.Arena;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;

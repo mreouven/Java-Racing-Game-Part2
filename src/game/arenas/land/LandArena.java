@@ -1,5 +1,6 @@
-package game.arenas;
+package game.arenas.land;
 
+import game.arenas.Arena;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
@@ -16,7 +17,7 @@ public class LandArena extends Arena {
 	
 	
 	
-	protected LandArena() {
+	public LandArena() {
 		super(800,8,0.5);
 		//TODO verifier taille par default
 		
@@ -25,7 +26,7 @@ public class LandArena extends Arena {
 	
 	}
 
-	protected LandArena(double length, int maxRacers) {
+	public LandArena(double length, int maxRacers) {
 		super(length, maxRacers,0.5);
 		this.setSurface(SurfaceL.FLAT);
 		this.setCoverage(Coverage.GRASS);

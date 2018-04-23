@@ -117,8 +117,8 @@ public abstract class Racer {
 	{
 		String spec=describeSpecific();
 		if(spec!=null)
-			return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+", acceleration: "+new DecimalFormat("0.00").format(acceleration) +", "+ describeSpecific();
-		return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+ ", acceleration: "+new DecimalFormat("0.00").format(acceleration);
+			return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+", acceleration: "+new DecimalFormat("0.00").format(acceleration) +", Color: "+color+" "+ describeSpecific();
+		return " name: "+name+ ", SerialNumber: " +serialNumber+", maxSpeed: "+maxSpeed+ ", acceleration: "+new DecimalFormat("0.00").format(acceleration)+", Color: "+color;
 		
 	}
 	
