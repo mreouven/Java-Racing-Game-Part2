@@ -16,6 +16,8 @@ public class SpeedBoat extends Racer implements NavalRacer{
 	TeamBoat team=TeamBoat.DOUBLE;
 	TypeBoat type=TypeBoat.SWEEP;
 	
+	private final static double DEFAULT_MAXSPEED=170;
+	private final static double DEFAULT_ACCELERATION=5;
 
 	public TeamBoat getTeam() {
 		return team;
@@ -30,7 +32,7 @@ public class SpeedBoat extends Racer implements NavalRacer{
 		this.type = type;
 	}
 	public SpeedBoat() {
-		super(null, 170, 5, Color.RED);
+		super(null, DEFAULT_MAXSPEED, DEFAULT_ACCELERATION, Color.RED);
 		name="SpeedBoat#"+serialNumber;
 	}
 	public SpeedBoat(String name, double maxSpeed, double acceleration, Color color) {

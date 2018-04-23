@@ -23,7 +23,8 @@ public class Airplane extends Racer implements AerialRacer{
 	
 	
 	Wheeled airplane;
-	
+	private final static double DEFAULT_MAXSPEED=885;
+	private final static double DEFAULT_ACCELERATION=100;
 
 	public Airplane(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
@@ -32,7 +33,7 @@ public class Airplane extends Racer implements AerialRacer{
 	}
 
 	public Airplane() {
-		super(null, 885, 100, Color.BLACK);
+		super(null, DEFAULT_MAXSPEED, DEFAULT_ACCELERATION, Color.BLACK);
 		name="Airplane#"+serialNumber;
 		airplane=new Wheeled(0);
 	}

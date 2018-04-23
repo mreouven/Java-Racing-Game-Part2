@@ -17,6 +17,9 @@ public class Bicycle extends Racer implements LandRacer{
 	Wheeled bicycleW;
 	utilities.EnumContainer.TypeBicycle type=TypeBicycle.MOUNTAIN;
 
+	private final static double DEFAULT_MAXSPEED=270;
+	private final static double DEFAULT_ACCELERATION=10;
+	
 	public Bicycle(String name, double maxSpeed, double acceleration, Color color,int numOfWheeld) {
 		super(name, maxSpeed, acceleration, color);
 		if(name==null) {
@@ -25,7 +28,7 @@ public class Bicycle extends Racer implements LandRacer{
 		bicycleW=new Wheeled(numOfWheeld);
 	}
 	public Bicycle() {
-		super("", 270, 10, Color.GREEN);
+		super("", DEFAULT_MAXSPEED, DEFAULT_ACCELERATION, Color.GREEN);
 		name="Bicycle#"+serialNumber;
 		bicycleW=new Wheeled(2);
 	}

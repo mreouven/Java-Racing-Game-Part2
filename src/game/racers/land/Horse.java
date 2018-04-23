@@ -12,6 +12,8 @@ import utilities.EnumContainer.Color;
 public class Horse extends Racer implements LandRacer {
 
 	Breed breed=Breed.THOROUGHBRED;
+	private final static double DEFAULT_MAXSPEED=50;
+	private final static double DEFAULT_ACCELERATION=3;
 	public Horse(String name, double maxSpeed, double acceleration, Color color) {
 		
 		super(name, maxSpeed, acceleration, color);
@@ -19,7 +21,7 @@ public class Horse extends Racer implements LandRacer {
 	}
 	public Horse() {
 		
-		super(null, 50, 3, Color.BLACK);
+		super(null, DEFAULT_MAXSPEED, DEFAULT_ACCELERATION, Color.BLACK);
 		name="Horse#"+serialNumber;
 		
 	}

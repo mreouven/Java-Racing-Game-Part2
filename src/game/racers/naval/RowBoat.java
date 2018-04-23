@@ -15,7 +15,8 @@ public class RowBoat extends Racer implements NavalRacer{
 	
 	TeamBoat team=TeamBoat.DOUBLE;
 	TypeBoat type=TypeBoat.SKULLING;
-	
+	private final static double DEFAULT_MAXSPEED=75;
+	private final static double DEFAULT_ACCELERATION=10;
 	public TeamBoat getTeam() {
 		return team;
 	}
@@ -37,7 +38,7 @@ public class RowBoat extends Racer implements NavalRacer{
 
 
 	public RowBoat() {
-		super(null, 75, 10, Color.RED);
+		super(null, DEFAULT_MAXSPEED, DEFAULT_ACCELERATION, Color.RED);
 		name="RowBoat#"+serialNumber;
 		type=TypeBoat.SKULLING;
 		team=TeamBoat.DOUBLE;
