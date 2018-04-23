@@ -3,7 +3,12 @@ package game.racers.air;
 
 import game.racers.Racer;
 import utilities.EnumContainer.Color;
-
+/** Represents an Helicopter.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 public class Helicopter extends Racer implements AerialRacer{
 	/**
 	* <h1>Helicopter</h1>

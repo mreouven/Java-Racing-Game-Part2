@@ -7,7 +7,12 @@ import utilities.Point;
 import utilities.EnumContainer.Color;
 import utilities.Fate;
 import utilities.Mishap;
-
+/** Represents an racer.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 public abstract class Racer {
 	
 	
@@ -34,7 +39,13 @@ public abstract class Racer {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param name
+	 * @param maxSpeed
+	 * @param acceleration
+	 * @param color
+	 */
 	public Racer(String name, double maxSpeed, double acceleration, Color color) {
 		super();
 		this.name = name;
@@ -45,13 +56,22 @@ public abstract class Racer {
 		takala=Fate.generateMishap();
 				
 	}
-	
+	/**
+	 * 
+	 * @param arena
+	 * @param start
+	 * @param finish
+	 */
 	public void initRace(Arena arena, Point start, Point finish) {
 		this.arena=arena;
 		this.currentLocation=new Point(start);
 		this.finish=new Point(finish);
 	}
-	
+	/**
+	 * 
+	 * @param friction
+	 * @return currentlocation Point
+	 */
 	public Point move(double friction) {
 		if(takala.isFixable()==false || takala.getTurnsToFix()==0) {
 			takala=Fate.generateMishap();

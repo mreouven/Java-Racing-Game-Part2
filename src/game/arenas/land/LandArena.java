@@ -6,7 +6,12 @@ import game.arenas.exceptions.RacerTypeException;
 import game.racers.Racer;
 import game.racers.land.LandRacer;
 import utilities.EnumContainer.*;
-
+/** Represents an LandArena.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 public class LandArena extends Arena {
 
 	
@@ -14,24 +19,23 @@ public class LandArena extends Arena {
 	private SurfaceL surface;
 	
 	
-	
+	private final static double DEFAULT_FRICTION=0.5;
+	private final static double DEFAULT_LENGHT=800;
+	private final static int DEFAULT_MAX_RACER=8;
 	
 	
 	public LandArena() {
-		super(800,8,0.5);
-		//TODO verifier taille par default
-		
+		super(DEFAULT_LENGHT,DEFAULT_MAX_RACER,DEFAULT_FRICTION);
 		this.setSurface(SurfaceL.FLAT);
 		this.setCoverage(Coverage.GRASS);
 	
 	}
 
 	public LandArena(double length, int maxRacers) {
-		super(length, maxRacers,0.5);
+		super(length, maxRacers,DEFAULT_FRICTION);
 		this.setSurface(SurfaceL.FLAT);
 		this.setCoverage(Coverage.GRASS);
 		
-		// TODO verifier pour friction et pour les enum
 	}
 
 
@@ -55,6 +59,14 @@ public class LandArena extends Arena {
 		this.surface = surface;
 	}
 
+	/**
+	   * This is the main method which makes use of addNum method.
+	   * @param Racer newRacer.
+	   * @return Nothing.
+	   * @exception RacerLimitException RacerTypeException On input error.
+	   * @see RacerTypeException 
+	   * @see RacerLimitException
+	   */
 	@Override
 	public void addRacer(Racer newRacer) throws RacerLimitException, RacerTypeException {
 		

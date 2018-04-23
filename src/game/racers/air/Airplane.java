@@ -3,7 +3,12 @@ package game.racers.air;
 import game.racers.Racer;
 import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
-
+/** Represents an Airplane.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 public class Airplane extends Racer implements AerialRacer{
 	/**
 	* <h1>Airplane</h1>

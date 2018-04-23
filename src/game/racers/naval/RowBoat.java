@@ -4,7 +4,12 @@ import game.racers.Racer;
 import utilities.EnumContainer.Color;
 import utilities.EnumContainer.TeamBoat;
 import utilities.EnumContainer.TypeBoat;
-
+/** Represents an RowBoat.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 @SuppressWarnings("unused")
 public class RowBoat extends Racer implements NavalRacer{
 	

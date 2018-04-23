@@ -4,7 +4,12 @@ import game.racers.Racer;
 import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
 import utilities.EnumContainer.Engine;
-
+/** Represents an Car.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 @SuppressWarnings("unused")
 public class Car extends Racer implements LandRacer{
 	

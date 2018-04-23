@@ -7,7 +7,12 @@ import utilities.Point;
 import game.arenas.exceptions.RacerLimitException;
 import game.arenas.exceptions.RacerTypeException;
 import game.racers.*;
-
+/** Represents an Arena.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 public abstract class Arena {
 	
 	protected  ArrayList <Racer> activeRacers;
@@ -20,7 +25,12 @@ public abstract class Arena {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param length
+	 * @param maxRacers
+	 * @param friction
+	 */
 	protected Arena(double length, int maxRacers, double friction){
 		this.setLength(length);
 		this.MAX_RACERS=maxRacers;
@@ -30,10 +40,20 @@ public abstract class Arena {
 	}
 	
 	
-	
+	 /**
+	   * This is the main method which makes use of addNum method.
+	   * @param Racer newRacer.
+	   * @return Nothing.
+	   * @exception RacerLimitException RacerTypeException On input error.
+	   * @see RacerTypeException 
+	   * @see RacerLimitException
+	   */
 	public abstract void addRacer(Racer newRacer) throws RacerLimitException, RacerTypeException;
 	
-	
+		/**
+	   * start the race
+	   * @see Arena
+	   */
 	public void initRace() {
 	
 	  for(int i=0;i<activeRacers.size();i++) {
@@ -42,6 +62,10 @@ public abstract class Arena {
  
 	  
 	}
+	/**
+	   * Check if active racer
+	   * @see Arena
+	   */
 	public boolean hasActiveRacers() {
 			if (activeRacers.size()!=0) {
 				return true;
@@ -51,7 +75,10 @@ public abstract class Arena {
 	}
 	
 	
-	
+		/**
+	   * Play turn for all player
+	   * @see Arena
+	   */
 	public void playTurn() {
 		for (Racer ap : this.activeRacers) {
 			ap.move(this.FRICTION);
@@ -62,13 +89,19 @@ public abstract class Arena {
 		}
 	}
 	
-	
+	/**
+	   * Check if completed race
+	   * @see Arena
+	   */
 	public int crossFinishLine(Racer racer) {
 		this.completedRacers.add(racer);
 		return this.completedRacers.size();
 	 }	
 	
-
+	/**
+	   * print all result
+	   * @see Arena
+	   */
 	public void showResults() {
 		
 		

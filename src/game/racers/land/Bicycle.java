@@ -5,7 +5,12 @@ import game.racers.Racer;
 import game.racers.Wheeled;
 import utilities.EnumContainer.Color;
 import utilities.EnumContainer.TypeBicycle;
-
+/** Represents an Bicycle.
+ * @author Mimoun Reouven
+ * @author Emeth Genah
+ * @version 2.2
+ * @since 1.0
+*/
 
 public class Bicycle extends Racer implements LandRacer{
 	
